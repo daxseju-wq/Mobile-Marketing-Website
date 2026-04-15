@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact - D Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+*{margin:0; padding:0; box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    overflow:hidden;
+
+    background: linear-gradient(270deg,#0f2027,#1a2a6c,#000000,#2c5364);
+    background-size:600% 600%;
+    animation:bgMove 20s infinite alternate;
+}
+
+/* BG ANIMATION */
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+/* FLOATING LIGHT ORBS */
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.5;
+}
+
+.orb1{width:200px;height:200px;background:#ff4ecd;top:10%;left:10%;}
+.orb2{width:250px;height:250px;background:#00eaff;bottom:10%;right:10%;}
+
+/* NAVBAR */
+nav{
+    background:rgba(0,0,0,0.5);
+    padding:15px;
+    text-align:center;
+    backdrop-filter: blur(12px);
+}
+
+nav a{
+    color:#eee;
+    margin:10px;
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    margin-top:30px;
+}
+
+.hero h1{
+    font-size:45px;
+    background:linear-gradient(90deg,#ff4ecd,#00f7ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* FORM */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:70vh;
+}
+
+.form-box{
+    width:320px;
+    padding:25px;
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    box-shadow:0 0 30px #00eaff;
+
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* INPUT */
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    background:#111;
+    color:white;
+
+    transition:0.3s;
+}
+
+/* INPUT FOCUS EFFECT */
+input:focus, textarea:focus{
+    box-shadow:0 0 10px #00eaff;
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#ff4ecd,#00f7ff);
+    color:white;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+/* RIPPLE EFFECT */
+.btn::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transition:0.5s;
+}
+
+.btn:active::after{
+    width:200px;
+    height:200px;
+    opacity:0;
+}
+
+/* SUCCESS POPUP */
+.success{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+
+    box-shadow:0 0 30px #00ff88;
+    transition:0.5s;
+}
+
+.success.show{
+    transform:translate(-50%,-50%) scale(1);
+}
+
+/* CHECK ICON */
+.check{
+    font-size:40px;
+    color:#00ff88;
+    animation:pop 0.5s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0);}
+    to{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ORBS -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="strategy.html">Strategy</a>
+<a href="campaign.html">Campaign</a>
+<a href="cart.html">🛒 Cart</a>
+<a href="Serv.html">Services</a>
+<a href="Cont.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>📞 Contact Us</h1>
+</div>
+
+<!-- FORM -->
+<div class="container">
+<div class="form-box">
+
+<form id="contactForm">
+
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message" required></textarea>
+
+<button type="submit" class="btn">Send Message 🚀</button>
+
+</form>
+
+</div>
+</div>
+
+<!-- SUCCESS -->
+<div class="success" id="successBox">
+<div class="check">✔</div>
+<h2>Message Sent!</h2>
+<p>We will contact you soon</p>
+</div>
+
+<script>
+
+/* FORM SUBMIT */
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let box = document.getElementById("successBox");
+
+    box.classList.add("show");
+
+    this.reset(); // 🔥 CLEAR FORM
+
+    setTimeout(()=>{
+        box.classList.remove("show");
+    },3000);
+
+});
+
+</script>
+
+</body>
+</html>

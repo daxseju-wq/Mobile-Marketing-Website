@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Services - D Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+*{margin:0; padding:0; box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    overflow-x:hidden;
+
+    background: linear-gradient(270deg,#0f2027,#1a2a6c,#000000,#2c5364);
+    background-size:600% 600%;
+    animation:bgMove 20s infinite alternate;
+}
+
+/* BG ANIMATION */
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+/* FLOATING ORBS */
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.5;
+    animation:float 10s infinite alternate;
+}
+
+.orb1{width:200px; height:200px; background:#ff4ecd; top:10%; left:10%;}
+.orb2{width:250px; height:250px; background:#00eaff; bottom:10%; right:10%;}
+
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(50px);}
+}
+
+/* NAVBAR */
+nav{
+    background:rgba(0,0,0,0.5);
+    padding:15px;
+    text-align:center;
+    backdrop-filter: blur(12px);
+}
+
+nav a{
+    color:#eee;
+    margin:10px;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.4s;
+}
+
+nav a:hover{
+    color:#00f7ff;
+    text-shadow:0 0 10px #00f7ff;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+    background:linear-gradient(90deg,#ff4ecd,#00f7ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 10px #ff4ecd;}
+    to{text-shadow:0 0 25px #00f7ff;}
+}
+
+.hero p{
+    color:#ccc;
+    margin-top:10px;
+}
+
+/* SERVICES GRID */
+.services{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:30px;
+}
+
+/* CARD */
+.card{
+    width:260px;
+    margin:20px;
+    padding:25px;
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    text-align:center;
+
+    transform:translateY(60px);
+    opacity:0;
+    transition:0.6s;
+}
+
+/* SHOW */
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* HOVER 3D */
+.card:hover{
+    transform:scale(1.1) rotateX(5deg) rotateY(5deg);
+    box-shadow:0 0 30px #00f7ff;
+}
+
+/* ICON */
+.card i{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+.card h3{
+    color:#ff4ecd;
+}
+
+.card p{
+    color:#ccc;
+    margin-top:10px;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:15px;
+    padding:10px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#ff4ecd,#00f7ff);
+    color:white;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:rgba(0,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ORBS -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="strategy.html">Strategy</a>
+<a href="campaign.html">Campaign</a>
+<a href="cart.html">Cart</a>
+<a href="Serv.html">Services</a>
+<a href="Cont.html">Contact</a> <!-- 🔥 NEW -->
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>🚀 Our Premium Services</h1>
+<p>Boost your business with next-gen marketing solutions</p>
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+
+<div class="card">
+<i>📩</i>
+<h3>Bulk SMS</h3>
+<p>Reach thousands instantly with smart targeting</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+<div class="card">
+<i>📲</i>
+<h3>App Promotion</h3>
+<p>Increase installs with high-converting campaigns</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+<div class="card">
+<i>📢</i>
+<h3>Social Media Ads</h3>
+<p>Run ads on Instagram, Facebook & more</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+<div class="card">
+<i>📍</i>
+<h3>Geo Targeting</h3>
+<p>Target users based on real location</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+<div class="card">
+<i>📊</i>
+<h3>Analytics</h3>
+<p>Track performance & optimize campaigns</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+<div class="card">
+<i>💰</i>
+<h3>Conversion Boost</h3>
+<p>Turn visitors into customers effectively</p>
+<button class="btn" onclick="goContact()">Contact</button>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 D-Mobile Marketing</p>
+</footer>
+
+<script>
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll", function(){
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(el=>{
+    let pos=el.getBoundingClientRect().top;
+
+    if(pos < window.innerHeight - 100){
+        el.classList.add("show");
+    }
+});
+
+});
+
+/* 🔥 CONTACT REDIRECT */
+function goContact(){
+    window.location.href = "contact.html";
+}
+
+</script>
+
+</body>
+</html>

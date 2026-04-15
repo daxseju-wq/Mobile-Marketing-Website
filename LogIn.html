@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - D Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    /* ANIMATED DARK GRADIENT */
+    background: linear-gradient(270deg,#0f2027,#203a43,#2c5364,#1f1c2c);
+    background-size:600% 600%;
+    animation:bgMove 15s infinite alternate;
+
+    color:white;
+}
+
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+/* BOX */
+.box{
+    background: rgba(0,0,0,0.7);
+    padding:30px;
+    border-radius:15px;
+    width:320px;
+    text-align:center;
+    backdrop-filter: blur(10px);
+    animation:fadeIn 2s ease;
+}
+
+/* TITLE */
+h2{
+    margin-bottom:15px;
+    color:#ff4ecd;
+    text-shadow:0 0 10px #ff4ecd;
+}
+
+/* TEXT ANIMATION */
+.typing{
+    font-size:14px;
+    color:#00eaff;
+    margin-bottom:15px;
+}
+
+/* BUTTON */
+.google-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+    color:black;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    transition:0.3s;
+}
+
+.google-btn:hover{
+    transform:scale(1.05);
+    background:#eee;
+}
+
+/* GOOGLE LOGO */
+.google-logo{
+    width:20px;
+}
+
+/* ACCOUNT BOX */
+.account{
+    background:white;
+    color:black;
+    padding:10px;
+    border-radius:8px;
+    margin:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.account:hover{
+    background:#ddd;
+}
+
+/* PASSWORD */
+input{
+    width:90%;
+    padding:10px;
+    margin:10px;
+    border:none;
+    border-radius:5px;
+}
+
+/* FADE */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.hidden{display:none;}
+
+</style>
+</head>
+
+<body>
+
+    
+<div class="box">
+
+<h2>D-Mobile Login</h2>
+
+<p class="typing" id="typing"></p>
+
+<!-- GOOGLE BUTTON -->
+<button class="google-btn" onclick="showGoogle()">
+<img class="google-logo" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+Login with Google
+</button>
+
+<!-- GOOGLE OPTIONS -->
+<div id="googleBox" class="hidden">
+
+    <h4>Choose Google Account</h4>
+
+    <div class="account" onclick="selectAccount('daxseju@gmail.com')">
+        daxseju@gmail.com
+    </div>
+
+    <div class="account" onclick="addAccount()">
+        + Add another account
+    </div>
+
+    <div id="passBox" class="hidden">
+        <p id="selectedEmail"></p>
+        <input type="password" id="gpass" placeholder="Enter Password">
+        <button class="google-btn" onclick="loginGoogle()">Login</button>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+/* TEXT TYPING */
+let text="Secure Login with Google Account";
+let i=0;
+
+function type(){
+    if(i<text.length){
+        document.getElementById("typing").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(type,50);
+    }
+}
+type();
+
+/* DATA */
+let selectedEmail="";
+let googlePassword="admin123";
+
+/* SHOW GOOGLE */
+function showGoogle(){
+    document.getElementById("googleBox").classList.remove("hidden");
+}
+
+/* SELECT ACCOUNT */
+function selectAccount(email){
+    selectedEmail=email;
+    document.getElementById("passBox").classList.remove("hidden");
+    document.getElementById("selectedEmail").innerText=email;
+}
+
+/* ADD ACCOUNT */
+function addAccount(){
+    let newEmail=prompt("Enter new Google account:");
+    if(newEmail){
+        selectedEmail=newEmail;
+        document.getElementById("passBox").classList.remove("hidden");
+        document.getElementById("selectedEmail").innerText=newEmail;
+    }
+}
+
+/* LOGIN */
+function loginGoogle(){
+    let pass=document.getElementById("gpass").value;
+
+    if(pass===googlePassword){
+        alert("Login Successful with "+selectedEmail);
+        window.location.href="home.html";
+    } else{
+        alert("Wrong Password!");
+    }
+}
+
+</script>
+
+</body>
+</html>

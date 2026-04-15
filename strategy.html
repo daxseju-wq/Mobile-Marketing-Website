@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Strategy - D Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    color:#ffffff;
+    background: linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+    background-size:600% 600%;
+    animation:bgMove 20s infinite alternate;
+}
+
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+/* NAVBAR */
+nav{
+    background:rgba(0,0,0,0.6);
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    backdrop-filter: blur(12px);
+}
+
+nav a{
+    color:#ffffff;
+    margin:10px;
+    text-decoration:none;
+    font-size:18px;
+    padding:8px 12px;
+    border-radius:5px;
+    transition:0.4s;
+}
+
+nav a:hover{
+    background:#00c6ff;
+    color:black;
+}
+
+/* HERO */
+.hero{
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    animation:fadeIn 3s ease-in;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#00eaff;
+    text-shadow:0 0 15px #00eaff;
+}
+
+/* SECTION */
+.section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+/* STEPS */
+.step{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    margin:15px;
+    border-radius:12px;
+    backdrop-filter: blur(10px);
+
+    transform:translateY(80px);
+    opacity:0;
+}
+
+/* ANIMATION DELAY */
+.step.show:nth-child(1){ animation:slideUp 1s ease forwards; }
+.step.show:nth-child(2){ animation:slideUp 1s ease forwards 0.3s; }
+.step.show:nth-child(3){ animation:slideUp 1s ease forwards 0.6s; }
+.step.show:nth-child(4){ animation:slideUp 1s ease forwards 0.9s; }
+.step.show:nth-child(5){ animation:slideUp 1s ease forwards 1.2s; }
+
+@keyframes slideUp{
+    from{
+        transform:translateY(80px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.step:hover{
+    transform:scale(1.05);
+    background:rgba(0,198,255,0.2);
+}
+
+/* CARDS */
+.card{
+    background:rgba(255,255,255,0.08);
+    border-radius:15px;
+    padding:25px;
+    margin:15px;
+    width:260px;
+    display:inline-block;
+
+    transform:translateY(100px);
+    opacity:0;
+    transition:1.2s;
+}
+
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.card:hover{
+    transform:scale(1.08);
+    background:rgba(0,198,255,0.25);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:rgba(0,0,0,0.6);
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ✅ UPDATED NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="strategy.html">Strategy</a>
+<a href="campaign.html">Campaign</a>
+<a href="cart.html">🛒 Cart</a>
+<a href="Serv.html">Services</a>
+<a href="Cont.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Smart Mobile Marketing Strategy</h1>
+<p>We use advanced techniques to grow business</p>
+</div>
+
+<!-- STRATEGY -->
+<div class="section">
+<h2 style="color:#00eaff;">💼 Business Marketing Strategy</h2>
+
+<div class="step">🎯 Identify High Potential Customers</div>
+<div class="step">📊 Analyze Market & Competitors</div>
+<div class="step">💡 Create High-Converting Offers</div>
+<div class="step">📢 Multi-Channel Promotion Strategy</div>
+<div class="step">📈 Track ROI & Optimize Campaign</div>
+
+</div>
+
+<!-- METHODS -->
+<div class="section">
+<h2 style="color:#00eaff;">🔥 Advanced Marketing Methods</h2>
+
+<div class="card">📩 Bulk SMS Marketing</div>
+<div class="card">📲 App Install Campaign</div>
+<div class="card">📢 Social Media Ads</div>
+<div class="card">📍 Geo Targeting</div>
+<div class="card">💰 Conversion Optimization</div>
+<div class="card">📊 Data Analytics</div>
+
+</div>
+
+<footer>
+<p>© 2026 D-Mobile Marketing</p>
+</footer>
+
+<script>
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll", function(){
+
+let steps = document.querySelectorAll(".step");
+let cards = document.querySelectorAll(".card");
+
+steps.forEach(el=>{
+    let pos = el.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
+        el.classList.add("show");
+    }
+});
+
+cards.forEach(el=>{
+    let pos = el.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
+        el.classList.add("show");
+    }
+});
+
+});
+
+</script>
+
+</body>
+</html>

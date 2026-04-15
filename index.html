@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>D-Mobile Marketing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+/* NAVBAR */
+nav{
+    background:#1e3c72;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-size:18px;
+    padding:8px 12px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#ffcc00;
+    color:black;
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    background: linear-gradient(135deg,#2a5298,#6dd5fa);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:12px 25px;
+    background:#ff7e5f;
+    border:none;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* SECTION */
+.section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:250px;
+    margin:15px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* FOOTER */
+footer{
+    background:#1e3c72;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<a href="index.html">Home</a>
+<a href="strategy.html">Strategy</a>
+<a href="campaign.html">Campaign</a>
+<a href="cart.html">🛒 Cart</a>
+<a href="Serv.html">Services</a>
+<a href="Cont.html">Contact</a>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1 id="typing"></h1>
+<p>We run real mobile marketing campaigns using SMS, Apps and Ads</p>
+<button class="btn" onclick="start()">Start Campaign</button>
+</div>
+
+<!-- STRATEGY -->
+<div class="section">
+<h2>Our Strategy</h2>
+<p>We target users, send SMS campaigns, run ads and track performance.</p>
+
+<div class="cards">
+<div class="card">User Targeting</div>
+<div class="card">SMS Campaign</div>
+<div class="card">App Ads</div>
+<div class="card">Analytics</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+<h2>Our Services</h2>
+
+<div class="cards">
+<div class="card">📩 SMS Marketing</div>
+<div class="card">📲 App Promotion</div>
+<div class="card">📢 Social Ads</div>
+<div class="card">📍 Location Ads</div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+<h2>Contact Us</h2>
+<p>Email: daxseju@gmail.com</p>
+<p>Phone: 1234567890</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 D-Mobile Marketing</p>
+</footer>
+
+<script>
+
+/* TYPING EFFECT */
+let text="Welcome to Mobile Marketing\nGrow Your Business with Mobile Marketing";
+let i=0;
+
+function type(){
+    if(i<text.length){
+        let char = text.charAt(i);
+
+        if(char === "\n"){
+            document.getElementById("typing").innerHTML += "<br>";
+        } else {
+            document.getElementById("typing").innerHTML += char;
+        }
+
+        i++;
+        setTimeout(type,60);
+    }
+}
+
+type();
+
+/* ✅ BUTTON CONNECTED */
+function start(){
+    window.location.href = "strategy.html";
+}
+
+</script>
+
+</body>
+</html>
